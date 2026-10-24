@@ -23,10 +23,19 @@ export default function Navbar() {
 
   const close = () => setOpen(false)
 
+  // Логотип возвращает на первый экран: плавно в самый верх, без #hero в адресе
+  const toTop = (e) => {
+    e.preventDefault()
+    setOpen(false)
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' })
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search)
+  }
+
   return (
     <header className="nav" id="site-nav" data-open={open || undefined}>
       <div className="nav__inner art" style={{ '--h': 56 }}>
-        <a className="nav__logo abs" href="#hero" style={at(51, -10, 80, 55)} onClick={close} aria-label="Спутник — в начало страницы">
+        <a className="nav__logo abs" href="#hero" style={at(51, -10, 80, 55)} onClick={toTop} aria-label="Спутник — на главный экран" title="На главный экран">
           <NavLogo />
         </a>
 

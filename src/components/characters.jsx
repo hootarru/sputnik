@@ -98,7 +98,7 @@ export function NavLogo() {
     <svg className="logo" viewBox="0 0 80 55" aria-hidden="true" focusable="false" overflow="visible">
       <text x="0" y="38.1818" fontSize="28" fontWeight="300" fill="#fff" letterSpacing="-0.28">(</text>
       <text x="70" y="38.1818" fontSize="28" fontWeight="300" fill="#fff" letterSpacing="-0.28">)</text>
-      <text x="15" y="77.2273" fontSize="90" fontWeight="600" fill="#fff">*</text>
+      <text className="logo__star" x="15" y="77.2273" fontSize="90" fontWeight="600" fill="#fff">*</text>
     </svg>
   )
 }

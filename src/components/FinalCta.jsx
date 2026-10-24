@@ -22,9 +22,9 @@ export default function FinalCta() {
   return (
     <section id="try" className="cta art" style={{ '--h': 700 }} aria-labelledby="cta-title">
       <h2 id="cta-title" className="cta__title abs d-nowrap" style={at(40, 51, 1360)} data-anim="cta-title">
-        {/* Текст 254:478. Во второй строке Figma склеивает все слова неразрывными пробелами — на десктопе
-            строка и так помещается, а на телефоне ей нужно переноситься, поэтому там обычные пробелы. */}
-        Не{'\u00a0'}знаешь, что{'\u00a0'}<Mark l={-0.046} r={-0.07}>делать?</Mark><br className="d-br" /> Уже есть с чего <Mark l={0} r={-0.061}>начать.</Mark>
+        {/* Текст 254:478. В Figma вторая строка склеена целиком; на телефоне ей нужно переноситься,
+            поэтому склеены только «с чего» — чтобы предлог не повис. */}
+        Не{'\u00a0'}знаешь, что{'\u00a0'}<Mark l={-0.046} r={-0.07}>делать?</Mark><br className="d-br" /> Уже есть с{'\u00a0'}чего <Mark l={0} r={-0.061}>начать.</Mark>
       </h2>
 
       <p className="cta__say abs d-nowrap" style={at(611, 349)} data-anim="cta-rest" data-k="ctaSay">{T.ctaSay}</p>
