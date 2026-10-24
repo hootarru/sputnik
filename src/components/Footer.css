@@ -40,12 +40,20 @@
 .footer__link { font-weight: 400; transition: opacity 0.2s ease; }
 .footer__link:hover { opacity: 0.6; }
 .footer__link::after { content: ''; position: absolute; inset: -16px -10px; }
+.footer__link--plain:hover { opacity: 1; }
+.footer__link--plain::after { display: none; }
+.footer__ig-note {
+  font-weight: 400;
+  letter-spacing: var(--ls-ui);
+  color: rgb(0 0 0 / 0.4); /* Figma: #000 с непрозрачностью заливки 40% */
+}
 
 @media (min-width: 1024px) {
   .footer__logo { font-size: calc(343 * var(--s)); line-height: calc(415 * var(--s)); }
   .footer__tag { font-size: calc(35 * var(--s)); line-height: calc(42 * var(--s)); }
   .footer__bar { top: calc(526 * var(--s)); height: calc(58 * var(--s)); }
   .footer__title, .footer__link { font-size: calc(18 * var(--s)); line-height: calc(22 * var(--s)); }
+  .footer__ig-note { font-size: calc(8 * var(--s)); line-height: calc(10 * var(--s)); }
 }
 
 @media (max-width: 1023.98px) {
@@ -89,7 +97,10 @@
     inset: 0 calc(-1 * var(--gutter));
     background: var(--c-lime);
   }
-  .footer__links { display: flex; gap: 28px; }
+  .footer__links { display: flex; flex-wrap: wrap; gap: 4px 28px; }
+  /* пометка — под «//instagram*», со сдвигом как в макете */
+  .footer__ig { display: flex; flex-direction: column; }
+  .footer__ig-note { margin: -1px 0 0 14px; font-size: 10px; line-height: 12px; }
   .footer__title, .footer__link { position: relative; font-size: 17px; line-height: 22px; }
   .footer__bar { display: none; }
 }
