@@ -10,6 +10,7 @@ import FinalCta from './components/FinalCta.jsx'
 import Footer from './components/Footer.jsx'
 import { initAnimations } from './animations/index.js'
 import './styles/calibration.css'
+import './styles/mobile.css'
 
 export default function App() {
   useEffect(() => {
