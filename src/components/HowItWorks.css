@@ -1,0 +1,72 @@
+/* Шаг: карточка 561×148, r 15, #e3e2de, без тени. Лаймовая шапка 48px, скругление только сверху.
+   «01//» и название — Semi Bold 43/52, текст начинается на 2px выше карточки;
+   название выровнено по правому краю с отступом 11. Текст Regular 18/22 (x+11, y+65). */
+
+.steps { list-style: none; margin: 0; padding: 0; }
+
+.step {
+  background: var(--c-step);
+}
+.step__head {
+  position: absolute;
+  left: 0; top: 0; right: 0;
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: var(--c-lime);
+  transform-origin: left center;
+}
+.step__num,
+.step__name {
+  position: absolute;
+  font-weight: 600;
+  letter-spacing: var(--ls-heading);
+  color: var(--c-ink-2);
+  white-space: nowrap;
+}
+.step__text {
+  letter-spacing: var(--ls-tight);
+  color: var(--c-ink-3);
+}
+
+@media (min-width: 1024px) {
+  .step { border-radius: calc(15 * var(--s)); }
+  .step__head { height: calc(48 * var(--s)); }
+  .step__num, .step__name { top: calc(-2 * var(--s)); font-size: calc(43 * var(--s)); line-height: calc(52 * var(--s)); }
+  .step__num { left: calc(11 * var(--s)); }
+  .step__name { right: calc(11 * var(--s)); }
+  .step__text {
+    position: absolute;
+    left: calc(11 * var(--s)); top: calc(65 * var(--s));
+    width: calc(var(--tw) * var(--s));
+    font-size: calc(18 * var(--s)); line-height: calc(22 * var(--s));
+  }
+}
+
+@media (max-width: 1023.98px) {
+  .steps { display: grid; gap: 14px; }
+  .step {
+    position: relative;
+    border-radius: 15px;
+    padding: 60px 14px 18px;
+  }
+  .step__head { height: 46px; }
+  .step__num, .step__name { top: -1px; font-size: 38px; line-height: 48px; }
+  .step__num { left: 11px; }
+  .step__name { right: 11px; }
+  .step__text { font-size: 17px; line-height: 1.3; letter-spacing: -0.04em; }
+  /* сохраняем «лесенку»: шаги чередуются слева и справа */
+  .step--left { margin-right: 8%; }
+  .step--right { margin-left: 8%; }
+}
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  /* как на десктопе: карточки ~60% ширины, вторая колонка заходит на первую */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step { width: 62%; }
+  .step--left { margin: 0; align-self: flex-start; }
+  .step--right { margin: 0; align-self: flex-end; }
+  .step + .step { margin-top: -18px; }
+}
+@media (max-width: 380px) {
+  .step__num, .step__name { font-size: 32px; }
+}

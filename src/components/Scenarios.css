@@ -1,0 +1,117 @@
+/* Карточка 561×116, r 15, фон rgba(217,217,217,.2) без Glass, тень 0 8 24 rgba(186,186,186,.25).
+   Лаймовая шапка 561×38, скругление только сверху (15/15/0/0).
+   Заголовок Medium 26/31 (x+11, y+2), текст Regular 20/24 (x+11, y+53),
+   три точки 10×10 на x+519 / +532 / +545, y+14. */
+
+.scen__cards { list-style: none; margin: 0; padding: 0; }
+
+.scen__star {
+  font-weight: 600;
+  letter-spacing: var(--ls-tight);
+  color: var(--c-ink);
+  user-select: none;
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  background: var(--c-card);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 12px 30px rgb(160 160 160 / 0.32);
+}
+.card__head {
+  position: absolute;
+  left: 0; top: 0; right: 0;
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: var(--c-lime);
+  transform-origin: left center;
+}
+.card__title {
+  position: relative;
+  font-weight: 500;
+  letter-spacing: -0.0755em;
+  color: var(--c-ink-3);
+  white-space: nowrap;
+}
+.card__dots {
+  position: absolute;
+  display: flex;
+}
+.card__dots i {
+  display: block;
+  border-radius: 50%;
+  background: var(--c-ink);
+}
+.card__text {
+  position: relative;
+  letter-spacing: var(--ls-tight);
+  color: var(--c-ink-3);
+}
+
+@media (min-width: 1024px) {
+  .card { border-radius: calc(15 * var(--s)); }
+  .card__head { height: calc(38 * var(--s)); }
+  .card__title {
+    position: absolute;
+    left: calc(11 * var(--s)); top: calc(2 * var(--s));
+    font-size: calc(26 * var(--s)); line-height: calc(31 * var(--s));
+  }
+  .card__dots { left: calc(519 * var(--s)); top: calc(14 * var(--s)); gap: calc(3 * var(--s)); }
+  .card__dots i { width: calc(10 * var(--s)); height: calc(10 * var(--s)); }
+  .card__text {
+    position: absolute;
+    left: calc(11 * var(--s)); top: calc(53 * var(--s));
+    font-size: calc(20 * var(--s)); line-height: calc(24 * var(--s));
+    white-space: pre;
+  }
+}
+
+@media (max-width: 1023.98px) {
+  .scen__intro { margin-bottom: 40px; }
+  .scen__cards {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 16px;
+  }
+  /* На узком экране длинные заголовки переносятся, поэтому лаймовую шапку несёт сам заголовок */
+  .card { border-radius: 15px; padding: 0 0 16px; }
+  .card__head { display: none; }
+  .card__title {
+    display: block;
+    min-height: 38px;
+    padding: 4px 58px 4px 11px;
+    border-radius: 15px 15px 0 0;
+    background: var(--c-lime);
+    font-size: 22px; line-height: 30px;
+    white-space: normal;
+  }
+  .card__dots { right: 14px; top: 14px; gap: 3px; }
+  .card__dots i { width: 10px; height: 10px; }
+  .card__text { padding: 10px 14px 0; font-size: 17px; line-height: 1.32; letter-spacing: -0.04em; }
+
+  /* Астериск и поясняющий текст — в одну строку, как в макете */
+  .scen__note {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 36px;
+  }
+  .scen__star {
+    flex: none;
+    font-size: 120px;
+    line-height: 0.6;
+    height: 0.62em;
+    margin-top: -2px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .scen__cards { grid-template-columns: 1fr 1fr; }
+  .scen__note { max-width: 620px; margin-left: auto; }
+}

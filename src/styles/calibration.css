@@ -1,0 +1,15 @@
+/* Калибровка переносов строк под Figma (только раскладка ≥ 1024px).
+   Inter в Figma и в браузере немного отличается шириной, поэтому для части абзацев
+   трекинг сдвинут на доли процента от номинальных −8%, чтобы строки рвались там же, где в макете.
+   Значения получены автоматическим сравнением со скриншотом фрейма «варфрейм 3». */
+@media (min-width: 1024px) {
+  .art [data-k="aboutP1"] { letter-spacing: -0.0808em; }
+  .art [data-k="audSub"] { letter-spacing: -0.0824em; }
+  .art [data-k="safeSub1"] { letter-spacing: -0.0824em; }
+  .art [data-k="safeText1"] { letter-spacing: -0.0808em; }
+  .art [data-k="safeText2"] { letter-spacing: -0.0808em; }
+  .art [data-k="howSub"] { letter-spacing: -0.0816em; }
+  .art [data-k="step3Text"] { letter-spacing: -0.0792em; }
+  /* В Figma «ситуации» уходит на вторую строку; в браузере строка помещается в 787px — сужаем блок. */
+  .art [data-k="safeSub2"] { width: calc(740 * var(--s)); }
+}

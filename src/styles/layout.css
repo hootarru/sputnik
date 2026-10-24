@@ -1,0 +1,111 @@
+/*
+  Две раскладки.
+
+  ≥ 1024px — «артборд»: каждая секция — кусок фрейма 1440 с абсолютным
+  позиционированием по координатам Figma (--x, --y, --w в px макета).
+  Всё, включая кегли, умножается на --s, поэтому композиция и переносы
+  строк совпадают с макетом при любой ширине от 1024 до 1440. Шире 1440
+  масштаб = 1, артборд по центру.
+
+  < 1024px — обычный поток. Порядок DOM = порядок чтения, а позиции,
+  кегли и отступы задаются в CSS каждой секции.
+*/
+
+/* Типографические роли. Значения десктопа (--fs / --lh) — из Figma. */
+.ty-num   { --fs: 150; --lh: 80;  font-weight: 600; letter-spacing: var(--ls-display); color: var(--c-ink); }
+.ty-h2    { --fs: 150; --lh: 120; font-weight: 600; letter-spacing: var(--ls-display); color: var(--c-ink); }
+.ty-sub   { --fs: 65;  --lh: 70;  font-style: italic; font-weight: 400; letter-spacing: var(--ls-tight); color: var(--c-ink); }
+.ty-h3    { --fs: 45;  --lh: 54;  font-weight: 600; letter-spacing: var(--ls-heading); color: var(--c-ink-2); }
+.ty-body  { --fs: 26;  --lh: 31;  font-weight: 400; letter-spacing: var(--ls-tight); color: var(--c-ink-3); }
+
+@media (min-width: 1024px) {
+  .art {
+    position: relative;
+    width: calc(1440 * var(--s));
+    height: calc(var(--h) * var(--s));
+    margin-inline: auto;
+  }
+  .art .abs {
+    position: absolute;
+    left: calc(var(--x) * var(--s));
+    top: calc(var(--y) * var(--s));
+    width: var(--w-px, auto);
+    height: var(--h-px, auto);
+    margin: 0;
+  }
+  .ty-num, .ty-h2, .ty-sub, .ty-h3, .ty-body, .ty {
+    font-size: calc(var(--fs) * var(--s));
+    line-height: calc(var(--lh) * var(--s));
+  }
+  .d-nowrap { white-space: nowrap; }
+
+  /* Поправка трекинга по каждому заголовку: подобрана сравнением ширины начертания
+     со скриншотом Figma (кернинг Inter в Figma и в браузере различается по-разному для разных букв). */
+  #about .sh__title { letter-spacing: -0.0734em; }
+  #audience .sh__title { letter-spacing: -0.0757em; }
+  #scenarios .sh__title { letter-spacing: -0.0807em; }
+  #safe-space .sh__title { letter-spacing: -0.0676em; }
+  #how-it-works .sh__title { letter-spacing: -0.0696em; }
+  .about__manifest { letter-spacing: -0.079em; }
+  .cta .cta__title { letter-spacing: -0.0806em; }
+}
+
+@media (max-width: 1023.98px) {
+  .art {
+    position: relative;
+    padding: 72px var(--gutter);
+  }
+  .ty-h2, .ty-num { font-size: var(--m-h2); line-height: 0.86; }
+  .ty-sub  { font-size: var(--m-sub); line-height: 1.08; }
+  .ty-h3   { font-size: var(--m-h3); line-height: 1.2; }
+  .ty-body { font-size: var(--m-body); line-height: 1.32; letter-spacing: -0.04em; }
+}
+
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .art { padding-block: 96px; }
+}
+
+/* ---------- Общие элементы ---------- */
+
+/* Номер секции на лаймовой плашке: плашка 56px при кегле 150 и lh 80,
+   отступ сверху 12px (Figma). В em, чтобы работало на любом кегле. */
+.num {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  white-space: nowrap;
+}
+.num__band {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 0.08em;
+  height: 0.3733em;
+  background: var(--c-lime);
+  transform-origin: left center;
+}
+
+/* Заголовок секции: номер + название. На десктопе оба — абсолютные. */
+@media (max-width: 1023.98px) {
+  .sh { margin: 0 0 28px; }
+  .sh .num { margin-right: 0.18em; }
+  .sh .num__band { top: 0.24em; height: 0.42em; }
+  .sh__title { display: inline; }
+  .sh-sub { margin: 0 0 32px 14%; }
+}
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .sh-sub { margin-left: 30%; }
+}
+
+/* Коллаж: обёртка задаёт соотношение сторон, слои позиционируются в %. */
+.collage {
+  position: relative;
+}
+.collage__layer {
+  position: absolute;
+  max-width: none;
+}
+@media (max-width: 1023.98px) {
+  .collage { width: 100%; aspect-ratio: var(--ar); }
+}

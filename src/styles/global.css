@@ -1,0 +1,65 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-padding-top: var(--nav-h);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Элементы, выходящие за фрейм (как в Figma), обрезаются по краю окна без горизонтального скролла */
+.page { overflow-x: hidden; }
+@supports (overflow: clip) {
+  .page { overflow-x: clip; }
+}
+
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p { margin: 0; font: inherit; }
+button { font: inherit; color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--c-ink);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  left: 12px;
+  top: -60px;
+  padding: 10px 14px;
+  background: var(--c-lime);
+  color: var(--c-ink);
+  font-weight: 600;
+}
+.skip-link:focus { top: 12px; }
+
+.anim-pending [data-anim^='hero-'] { visibility: hidden; }
+
+.nowrap { white-space: nowrap; }
+.pre { white-space: pre-line; }

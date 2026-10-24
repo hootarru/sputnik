@@ -1,0 +1,94 @@
+/* Персонаж: «*» Semi Bold 343 с глазами и лапками (вектор из Figma).
+   «СПУТНИК» Semi Bold 343, по центру, шире фрейма (x −61, w 1561).
+   Лаймовая полоса 58px на всю ширину окна, на ней контакты 18px. */
+
+.footer { position: relative; }
+
+.footer__char svg { width: 100%; height: auto; overflow: visible; }
+
+.footer__logo {
+  font-weight: 600;
+  letter-spacing: var(--ls-display);
+  text-align: center;
+  white-space: nowrap;
+  color: var(--c-ink);
+  user-select: none;
+}
+.footer__tag {
+  font-style: italic;
+  letter-spacing: var(--ls-ui);
+  color: var(--c-ink-3);
+}
+
+.footer__bar {
+  position: absolute;
+  z-index: -1;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  background: var(--c-lime);
+}
+.footer__art { isolation: isolate; }
+
+.footer__links { list-style: none; margin: 0; padding: 0; }
+.footer__title,
+.footer__link {
+  letter-spacing: var(--ls-ui);
+  color: var(--c-ink-3);
+}
+.footer__title { font-weight: 600; }
+.footer__link { font-weight: 400; transition: opacity 0.2s ease; }
+.footer__link:hover { opacity: 0.6; }
+.footer__link::after { content: ''; position: absolute; inset: -16px -10px; }
+
+@media (min-width: 1024px) {
+  .footer__logo { font-size: calc(343 * var(--s)); line-height: calc(415 * var(--s)); }
+  .footer__tag { font-size: calc(35 * var(--s)); line-height: calc(42 * var(--s)); }
+  .footer__bar { top: calc(526 * var(--s)); height: calc(58 * var(--s)); }
+  .footer__title, .footer__link { font-size: calc(18 * var(--s)); line-height: calc(22 * var(--s)); }
+}
+
+@media (max-width: 1023.98px) {
+  .footer__art { display: flex; flex-direction: column; padding: 0 var(--gutter); }
+  /* лапки заходят под кнопку, как в макете */
+  .footer__char {
+    position: relative;
+    z-index: 2;
+    align-self: center;
+    width: min(62vw, 300px);
+    margin-top: -10px;
+  }
+  .footer__logo {
+    margin: -0.55em calc(-1 * var(--gutter)) 0;
+    font-size: calc(100vw / 4.75);
+    line-height: 1.21;
+  }
+  .footer__tag {
+    margin-top: -0.1em;
+    font-size: clamp(16px, 4.4vw, 28px);
+    line-height: 1.25;
+    white-space: normal;
+    text-align: right;
+  }
+  .footer__bar { top: auto; bottom: 0; height: 100%; max-height: 58px; }
+  .footer__contacts {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 28px;
+    min-height: 58px;
+    margin-top: 16px;
+    padding: 10px 0;
+  }
+  .footer__contacts .footer__bar { display: none; }
+  .footer__contacts::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0 calc(-1 * var(--gutter));
+    background: var(--c-lime);
+  }
+  .footer__links { display: flex; gap: 28px; }
+  .footer__title, .footer__link { position: relative; font-size: 17px; line-height: 22px; }
+  .footer__bar { display: none; }
+}

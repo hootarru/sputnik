@@ -1,0 +1,12 @@
+.safe__sub--alt { color: var(--c-ink-3); }
+
+@media (max-width: 1023.98px) {
+  .safe__block + .safe__block { margin-top: 64px; }
+  .safe__sub { margin: 0 0 20px 14%; }
+  .safe__p { margin-left: 14%; }
+  .safe__img { width: 100%; margin-top: 28px; }
+}
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .safe__sub, .safe__p { margin-left: 30%; }
+  .safe__img { width: 70%; }
+}

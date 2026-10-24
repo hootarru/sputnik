@@ -1,0 +1,10 @@
+.about__manifest { color: var(--c-ink); }
+
+@media (max-width: 1023.98px) {
+  .about__p2 { margin: 28px 0 0 14%; }
+  .about__manifest { margin-top: 48px; }
+}
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .about__p1 { max-width: 620px; }
+  .about__p2 { max-width: 620px; margin-left: auto; }
+}

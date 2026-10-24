@@ -1,0 +1,36 @@
+/* Токены из Figma, фрейм «варфрейм 3» (node 254:427), макет 1440 × 7624. */
+:root {
+  --c-bg: #f2f1ec;
+  --c-lime: #d4fe2e;
+  --c-ink: #111111;
+  --c-ink-2: #181818;
+  --c-ink-3: #1e1e1e;
+  --c-white: #ffffff;
+  --c-step: #e3e2de;                    /* карточки шагов, 05 */
+  --c-card: rgb(217 217 217 / 0.2);     /* карточки сценариев, 03 — без Glass, как в макете */
+  --shadow-card: 0 8px 24px rgb(186 186 186 / 0.25);
+
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ls-tight: -0.08em;
+  --ls-ui: -0.01em;
+  /* Компенсация метрик: Semi Bold в Figma шире, чем Inter 4.0 в браузере
+     (замер по однострочным элементам: +1.1% на кегле 150–343, +0.5% на 43–45). */
+  --ls-display: -0.069em;   /* Semi Bold ≥ 100px, номинал −8% */
+  --ls-heading: -0.0775em;   /* Semi Bold 43–45px, номинал −8% */
+
+  --nav-h: 56px;
+
+  /* Десктоп: макет 1440 масштабируется целиком. 1 единица макета = var(--s). */
+  --s: calc(min(100vw, 1440px) / 1440);
+
+  /* Мобильная / планшетная раскладка (< 1024px) */
+  --gutter: 16px;
+  --m-h2: clamp(42px, 11.4vw, 104px);
+  --m-sub: clamp(27px, 7.4vw, 52px);
+  --m-h3: clamp(26px, 6.6vw, 40px);
+  --m-body: clamp(17px, 4.4vw, 21px);
+}
+
+@media (min-width: 640px) {
+  :root { --gutter: 32px; }
+}

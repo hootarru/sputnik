@@ -1,0 +1,14 @@
+@media (max-width: 1023.98px) {
+  .audience .ty-h3 { margin-bottom: 12px; }
+  .aud__collage { margin: 32px 0 0; }
+  .aud__collage--teens { margin-bottom: 56px; }
+  .aud__parents { margin-top: 0; }
+  /* родительская пара: подпись справа, как на десктопе */
+}
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .aud__p { max-width: 620px; }
+  .aud__collage--teens { width: 88%; margin-left: auto; }
+  .aud__collage--parents { width: 88%; }
+  .aud__parents, .aud__parents + .aud__p { margin-left: auto; max-width: 620px; }
+  .aud__parents { width: 620px; max-width: 100%; }
+}

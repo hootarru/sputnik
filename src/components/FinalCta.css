@@ -1,0 +1,64 @@
+/* Заголовок Semi Bold 133 / lh 120. Маркерные плашки 56px высотой, на 52px ниже верха строки
+   (0.391em / 0.421em). Горизонтальные выносы подобраны по макету: «делать?» 908–1386, «начать.» 953–1386. */
+.cta__title {
+  font-weight: 600;
+  letter-spacing: var(--ls-display);
+  color: var(--c-ink);
+  isolation: isolate;
+}
+.mark {
+  position: relative;
+  display: inline-block;
+}
+.mark__bg {
+  position: absolute;
+  z-index: -1;
+  top: 0.391em;
+  height: 0.421em;
+  left: var(--mark-l, -0.03em);
+  right: var(--mark-r, -0.03em);
+  background: var(--c-lime);
+  transform-origin: left center;
+}
+
+.cta__say {
+  font-style: italic;
+  letter-spacing: var(--ls-tight);
+  color: var(--c-ink-3);
+}
+.btn--cta { color: var(--c-ink); }
+.btn--cta[aria-disabled='true'] { cursor: default; }
+
+.d-br { display: none; }
+
+@media (min-width: 1024px) {
+  .d-br { display: inline; }
+  .cta__title { font-size: calc(133 * var(--s)); line-height: calc(120 * var(--s)); }
+  .cta__say { font-size: calc(65 * var(--s)); line-height: calc(79 * var(--s)); }
+  .btn--cta { font-size: calc(50 * var(--s)); line-height: calc(61 * var(--s)); }
+}
+
+@media (max-width: 1023.98px) {
+  .cta { padding-bottom: 0; }
+  .cta__title { font-size: clamp(40px, 10.6vw, 100px); line-height: 0.92; }
+  .cta__say {
+    margin: 40px 0 8px 14%;
+    font-size: clamp(26px, 7vw, 48px);
+    line-height: 1.2;
+  }
+  .cta__then { margin-left: 14%; }
+  .btn--cta {
+    position: relative;
+    z-index: 1;
+    margin-top: 40px;
+    min-height: 72px;
+    padding: 14px 24px;
+    border-radius: 60px;
+    font-size: clamp(26px, 7vw, 40px);
+    line-height: 1.2;
+  }
+}
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .cta__say, .cta__then { margin-left: 30%; }
+  .btn--cta { width: 76%; margin-inline: auto; }
+}

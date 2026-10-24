@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="«Спутник» — бесплатный Telegram-бот для подростков: помогает разобраться в повседневных ситуациях без оценок, диагнозов и готовых ответов." />
+    <meta name="theme-color" content="#111111" />
+    <title>Спутник — с тобой по пути</title>
+    <script>
+      // Первый экран скрыт до старта анимации появления (без мигания).
+      // Только если движение разрешено; через 3 с класс снимается в любом случае.
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('anim-pending')
+        setTimeout(function () { document.documentElement.classList.remove('anim-pending') }, 3000)
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

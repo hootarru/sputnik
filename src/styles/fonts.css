@@ -1,0 +1,7 @@
+/* Inter 4.0 (SIL OFL 1.1). Подмножество: латиница + кириллица + пунктуация + стрелки.
+   Только начертания из «варфрейм 3». */
+@font-face { font-family: 'Inter'; font-weight: 300; font-style: normal; font-display: swap; src: url('../assets/fonts/Inter-Light.woff') format('woff'); }
+@font-face { font-family: 'Inter'; font-weight: 400; font-style: normal; font-display: swap; src: url('../assets/fonts/Inter-Regular.woff') format('woff'); }
+@font-face { font-family: 'Inter'; font-weight: 400; font-style: italic; font-display: swap; src: url('../assets/fonts/Inter-Italic.woff') format('woff'); }
+@font-face { font-family: 'Inter'; font-weight: 500; font-style: normal; font-display: swap; src: url('../assets/fonts/Inter-Medium.woff') format('woff'); }
+@font-face { font-family: 'Inter'; font-weight: 600; font-style: normal; font-display: swap; src: url('../assets/fonts/Inter-SemiBold.woff') format('woff'); }
