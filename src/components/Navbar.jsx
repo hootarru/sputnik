@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
     <header className="nav" id="site-nav" data-open={open || undefined}>
       <div className="nav__inner art" style={{ '--h': 56 }}>
-        <a className="nav__logo abs" href="#hero" style={at(51, -10, 80, 55)} onClick={toTop} aria-label="Спутник — на главный экран" title="На главный экран">
+        <a className="nav__logo abs" href="#hero" style={at(51, 0, 80, 55)} onClick={toTop} aria-label="Спутник — на главный экран" title="На главный экран">
           <NavLogo />
         </a>
 

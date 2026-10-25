@@ -83,7 +83,7 @@
     height: var(--nav-h);
     padding: 0 var(--gutter);
   }
-  .nav__logo { width: 64px; flex: none; margin-top: -8px; }
+  .nav__logo { width: 64px; flex: none; margin-top: -4px; }
   .nav__menu { margin-left: auto; }
   .nav__list { display: flex; gap: 28px; }
   .nav__link, .nav__try { position: relative; font-size: 16px; line-height: 20px; }
