@@ -1,0 +1,70 @@
+/* Плашка согласия: в стиле навбара — чёрный фон, белый текст, лаймовая кнопка-пилюля. */
+.consent {
+  position: fixed;
+  z-index: 60;
+  left: max(16px, env(safe-area-inset-left, 0px));
+  right: max(16px, env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  align-items: center;
+  gap: 16px 28px;
+  max-width: 760px;
+  margin-inline: auto;
+  padding: 16px 18px 16px 22px;
+  border-radius: 20px;
+  background: var(--c-ink);
+  color: var(--c-white);
+  box-shadow: 0 10px 30px rgb(17 17 17 / 0.25);
+  animation: consent-in 0.4s ease both;
+}
+@keyframes consent-in {
+  from { opacity: 0; transform: translateY(12px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .consent { animation: none; }
+}
+
+.consent__text {
+  flex: 1;
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+.consent__more {
+  color: var(--c-lime);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.consent__more:focus-visible { outline-color: var(--c-lime); }
+
+.consent__actions { display: flex; flex: none; gap: 8px; }
+.consent__btn {
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: var(--ls-ui);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, scale 0.2s ease;
+}
+.consent__btn:active { scale: 0.97; }
+.consent__btn:focus-visible { outline-color: var(--c-lime); border-radius: 999px; }
+.consent__btn--yes {
+  border: 0;
+  background: var(--c-lime);
+  color: var(--c-ink);
+}
+.consent__btn--yes:hover { background: #cbf522; }
+.consent__btn--no {
+  border: 1.5px solid rgb(255 255 255 / 0.35);
+  background: none;
+  color: var(--c-white);
+}
+.consent__btn--no:hover { border-color: var(--c-white); }
+
+@media (max-width: 639.98px) {
+  .consent { flex-direction: column; align-items: stretch; padding: 16px; }
+  .consent__actions .consent__btn { flex: 1; }
+}

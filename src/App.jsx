@@ -8,6 +8,7 @@ import SafeSpace from './components/SafeSpace.jsx'
 import HowItWorks from './components/HowItWorks.jsx'
 import FinalCta from './components/FinalCta.jsx'
 import Footer from './components/Footer.jsx'
+import ConsentBanner from './components/ConsentBanner.jsx'
 import { initAnimations } from './animations/index.js'
 import './styles/calibration.css'
 import './styles/mobile.css'
@@ -41,6 +42,7 @@ export default function App() {
         </main>
         <Footer />
       </div>
+      <ConsentBanner />
     </>
   )
 }
